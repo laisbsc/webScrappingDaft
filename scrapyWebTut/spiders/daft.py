@@ -30,7 +30,7 @@ class DaftSpider(scrapy.Spider):
     def parse(self, response):
         print(response.url)
         rent_price = response.xpath('//div[@id="smi-price-string"]//text()').get()
-        location = response.xpath('//div[@id="git pull origin master --allow-unrelated-histories"]//h2/text()').get()
+        location = response.xpath('//div[@id="earch_result_title_boxs"]//h2/text()').get()
         size = response.xpath('//div[@id="address_box"]//span[contains(text(),"feet")]//text()').get()
         how_many_times_views = response.xpath(
             '//div[@class="description_extras"]//h3[contains(text(),"Property Views:")]/following-sibling::text()[1]').get()
