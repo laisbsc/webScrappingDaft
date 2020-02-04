@@ -8,7 +8,7 @@ class DaftSpider(scrapy.Spider):
     name = 'daft'
     allowed_domains = ['daft.ie']
     start_urls = [
-        'https://www.daft.ie/dublin-city/commercial-property/retail-units/?ad_type=commercial&advanced=1&s%5Ba_id%5D%5B0%5D=3645&s%5Ba_id%5D%5B1%5D=2843&searchSource=commercial']
+        'https://www.daft.ie/ireland/commercial-property/?ad_type=commercial&advanced=1&searchSource=commercial']
 
     def start_requests(self):
         yield SplashRequest(
@@ -34,7 +34,9 @@ class DaftSpider(scrapy.Spider):
         size = response.xpath('//div[@id="address_box"]//span[contains(text(),"feet")]//text()').get()
         how_many_times_views = response.xpath(
             '//div[@class="description_extras"]//h3[contains(text(),"Property Views:")]/following-sibling::text()[1]').get()
-        yield rent_price
-        yield location
-        yield size
-        yield how_many_times_views
+        yield {
+            'rent_price': rent_price,
+            'location': location,
+            'size': size,
+            'how_many_times_views': how_many_times_views
+        }
