@@ -10,6 +10,9 @@ ________________________________________________________________________________
 
 Although the source code for the original project is available [here](https://github.com/avacadoadam/Webscraping-tutorial), I couldn't make my scrapper work.
 
+*UPDATE:
+My scraper is now working, except for the Location column [possible error on XPath] that is returning 'null'.
+
 The output from running the command ```scrapy crawl daft -t csv -o data.csv``` is available at [outputCLI.txt](https://github.com/laisbsc/webScrappingDaft/blob/master/outputCLI.txt) above. This command generates an empty .csv file (available at [data.csv](https://github.com/laisbsc/webScrappingDaft/blob/master/data.csv)) instead of outputting the scrapped data from the website.
 
 Further features to be implemented on this project:
@@ -50,13 +53,14 @@ sudo docker run -p 8050:8050 scrapinghub/splash
 https://docs.docker.com/engine/installation/windows/ to setup docker on windows.
 *I added a note to add documentation for windows installation on the scrapy-splash repo*
 
-To check if splash is running vist the http://127.0.0.1:8050/ on a browser where you should see a 
+To check if splash is running visit the http://127.0.0.1:8050/ on a browser where you should see a 
 webpage that looks like 
 
 ![alt text](https://github.com/avacadoadam/webScrappingDaft/blob/master/splashWebpageExample.png)
 
 
 *I believe this may be the issue*
+*UPDATE: This was the issue. I had the wrong port and docker was also a bit flaky. Fixed port and repaired Docker, crawler works! :D
 
 ## Also included a slight code update
 The code in parse function in /spiders/daft.py
@@ -80,6 +84,7 @@ hope that helps!
 scrapy : 1.8.0
 OS: Ubuntu 18.04.2 LTS
 Splash v3.3.1
+
 
 # MongoDB pipeline
 
