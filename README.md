@@ -10,17 +10,17 @@ ________________________________________________________________________________
 
 Although the source code for the original project is available [here](https://github.com/avacadoadam/Webscraping-tutorial), I couldn't make my scrapper work.
 
-*UPDATE:
-My scraper is now working, except for the Location column [possible error on XPath] that is returning 'null'.
+Scraper is now working, except for the Location column [possible error on XPath] that is returning 'null'.
 
-The output from running the command ```scrapy crawl daft -t csv -o data.csv``` is available at [outputCLI.txt](https://github.com/laisbsc/webScrappingDaft/blob/master/outputCLI.txt) above. This command generates an empty .csv file (available at [data.csv](https://github.com/laisbsc/webScrappingDaft/blob/master/data.csv)) instead of outputting the scrapped data from the website.
+The command ```scrapy crawl daft -t csv -o data.csv``` generates an empty .csv file (available at [data.csv](https://github.com/laisbsc/webScrappingDaft/blob/master/data.csv)) instead of outputting the scrapped data from the website.
 
 Further features to be implemented on this project:
  - use Postman to improve the structure of the website;
- - use MongoDB pipeline to automate the insertion of data into the output file;
+ - ~~use MongoDB pipeline to automate the insertion of data into the output file [DONE];~~
  - use matplotlib to visualise the most significant insights from the scrapped data (data science).
  
- 
+UPDATE I(04/02/2020): [Adam](https://github.com/avacadoadam/webScrappingDaft) updated this README.md with a list of possible debugs for the application. 
+
 # Possible solutions to no output:
 
 ## Checking Command used in log.
@@ -58,9 +58,8 @@ webpage that looks like
 
 ![alt text](https://github.com/avacadoadam/webScrappingDaft/blob/master/splashWebpageExample.png)
 
-
 *I believe this may be the issue*
-*UPDATE: This was the issue. I had the wrong port and docker was also a bit flaky. Fixed port and repaired Docker, crawler works! :D
+*UPDATE (04/02/20): This was the issue. I had the wrong port and docker was also a bit flaky. Fixed port and repaired Docker, crawler works! :D
 
 ## Also included a slight code update
 The code in parse function in /spiders/daft.py
@@ -85,8 +84,14 @@ scrapy : 1.8.0
 OS: Ubuntu 18.04.2 LTS
 Splash v3.3.1
 
+I used:
+Scrapy :  1.8.0 - projectscrapyWebTut
+OS: Win 10 Pro v. 1809
+Python: 3.7.0
+__________________________________________________________________
 
 # MongoDB pipeline
+## Instructions on how to add it to the crawler
 
 MongoDB is NoSQL that has a very fluid development process with scrapy and python.
 
@@ -108,14 +113,16 @@ ITEM_PIPELINES = {
 } 
 ```
 
-in the settings we need to activate the pipeline, the number is the ID and will decide what pipelines get executed first.
+in the *settings.py* we need to activate the pipeline, the number is the ID and will decide what pipelines get executed first.
 
 the URI will points to mongo database
 *I presume you will use mongoDB localy and not configure security measures for testing and development*
 The database name is daft and is where we will store the data.
 
-Will we need the libary *pymongo*
-can be installed with pip 
+Will we need the libary *pymongo* which can be installed with pip. And on pipelines.py
+```python
+import pymongo
+```
 
 In the pipeline ScrapywebtutPipeline
 We will override the __init__ method
@@ -154,9 +161,9 @@ Now we will also override close_spider
     def close_spider(self, spider):
         self.client.close()
 ```
-simply closing the database connection
+by simply closing the database connection.
 
-Now we will we get to the process_item(self,item,spider) function 
+Now we will we get to the process_item(self,item,spider) function.
 Where we can filter, process and then store the data in our mongoDB
 In the case of this project we know the item will be a dict 
 ```python
@@ -167,8 +174,8 @@ In the case of this project we know the item will be a dict
             'how_many_times_views': how_many_times_views
         }
 ```
-And we won't process or filter the data but simply insert the data into our mongoDB
-we will insert into the collection called "properties" inside the daft database using the connection we set up ealier.
+Data won't be processed or filtered but simply inserted into the mongoDB.
+We will insert into the collection called "properties" inside the daft database using the connection we set up ealier.
 We will also return the item as we may add more pipelines that come after the mongoDB such as adding it to a MYSQL data etc..
 not returning the item tells scrapy that you want to discard it and can cause annoying logic bugs.
 
@@ -177,7 +184,7 @@ not returning the item tells scrapy that you want to discard it and can cause an
         self.db['properties'].insert(item)
         return item
 ```
-And thats it we now stored the data in our mongoDB
+And that is it. We now stored the data in our mongoDB.
 
 To the data in mongo through the cmd
 We use the commands
