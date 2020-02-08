@@ -18,7 +18,7 @@ NEWSPIDER_MODULE = 'scrapyWebTut.spiders'
 #USER_AGENT = 'scrapyWebTut (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -37,12 +37,12 @@ ROBOTSTXT_OBEY = True
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
 
-USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
 
 DEFAULT_REQUEST_HEADERS = {
     'Accept-Language': 'en',
     'Content-Type': 'application/json',
-    'user-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+    'user-agent':'Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0',
     'Accept': 'application/json, text/plain, */*'
 }
 
@@ -68,6 +68,7 @@ DOWNLOADER_MIDDLEWARES = {
 
 SPLASH_URL = 'http://127.0.0.1:8050/'
 
+
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
 #EXTENSIONS = {
@@ -76,9 +77,12 @@ SPLASH_URL = 'http://127.0.0.1:8050/'
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'scrapyWebTut.pipelines.ScrapywebtutPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'scrapyWebTut.pipelines.ScrapywebtutPipeline': 300,
+}
+
+MONGO_URI = 'mongodb://localhost:27017'
+MONGO_DATABASE = 'daft'
 
 DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter' #custom
 

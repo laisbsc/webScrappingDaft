@@ -1,34 +1,29 @@
-rent_price,location,size,how_many_times_views
-€650 per month,,377 sq. feet (35 sq. metres),"
-164"
-Rent Negotiable,,"8,785 sq. feet (816 sq. metres)","
-38"
-€400 per month,,237 sq. feet (22 sq. metres),"
-71"
-Rent Negotiable,,"4,700 sq. feet (437 sq. metres)","
-806"
-Rent Negotiable,,"2,569 sq. feet (239 sq. metres)","
-92"
-€280 per month,,250 sq. feet (23 sq. metres),"
-426"
-,,,
-,,,
-,,,
-,,,
-,,,
-Rent Negotiable,,"1,350 sq. feet (125 sq. metres)","
-457"
-€250 per month,,505 sq. feet (47 sq. metres),"
-292"
-,,,
-€500 per month,,390 sq. feet (36 sq. metres),"
-51"
-,,,
-"€46,000 yearly",,"8,202 sq. feet (762 sq. metres)","
-291"
-Rent Negotiable,,"1,200 sq. feet (111 sq. metres)","
-2,962"
-Rent Negotiable,,300 sq. feet (28 sq. metres),"
-636"
-"€1,700 per month",,377 sq. feet (35 sq. metres),"
-738"
+rent_price,location,size,how_many_times_views,_id
+,,,,5e3f077156f4d2d96c5e8c56
+,,,,5e3f077156f4d2d96c5e8c57
+,,,,5e3f077156f4d2d96c5e8c58
+,,,,5e3f077156f4d2d96c5e8c59
+,,,,5e3f077156f4d2d96c5e8c5a
+,,,,5e3f077156f4d2d96c5e8c5b
+,,,,5e3f077256f4d2d96c5e8c5c
+,,,,5e3f077256f4d2d96c5e8c5d
+,,,,5e3f077256f4d2d96c5e8c5e
+,,,,5e3f077256f4d2d96c5e8c5f
+Rent Negotiable,,"1,323 sq. feet (123 sq. metres)","
+956",5e3f077356f4d2d96c5e8c60
+Rent Negotiable,,500 sq. feet (46 sq. metres),"
+5,965",5e3f077356f4d2d96c5e8c61
+,,,,5e3f077456f4d2d96c5e8c62
+Rent Negotiable,,"1,100 sq. feet (102 sq. metres)","
+824",5e3f077656f4d2d96c5e8c63
+,,,,5e3f077856f4d2d96c5e8c64
+Rent Negotiable,,"1,500 sq. feet (139 sq. metres)","
+2,090",5e3f077956f4d2d96c5e8c65
+Rent Negotiable,,"2,500 sq. feet (232 sq. metres)","
+1,196",5e3f077956f4d2d96c5e8c66
+Rent Negotiable,,650 sq. feet (60 sq. metres),"
+614",5e3f077b56f4d2d96c5e8c67
+Rent Negotiable,,"5,726 sq. feet (532 sq. metres)","
+381",5e3f077c56f4d2d96c5e8c68
+Rent Negotiable,,"8,389 sq. feet (779 sq. metres)","
+385",5e3f077f56f4d2d96c5e8c69
