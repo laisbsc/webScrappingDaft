@@ -1,5 +1,5 @@
 # Web Scrapping using Python & Scrapy on Daft.ie
-## This repo contains the project resulting from [this](https://www.youtube.com/watch?v=cPx621bqgkY&t=14s) Youtube tutorial published by Adam Sever.
+## This repo contains the project resulting from [this](https://www.youtube.com/watch?v=cPx621bqgkY&t=14s) Youtube tutorial.
 
 It consists basically on fetcing information about rent price, location, size and number of views for each comercial property listed a the daft.ie website. This info is fetched using XPath reference.
 
